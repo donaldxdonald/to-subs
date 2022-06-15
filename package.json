@@ -9,10 +9,25 @@
   },
   "author": "donaldxdonald",
   "license": "MIT",
-  "dependencies": {
-    "@dndxdnd/eslint-config": "^0.0.4",
+  "devDependencies": {
+    "@dndxdnd/eslint-config": "^1.0.1",
+    "@types/node": "^16.11.41",
     "eslint": "^8.10.0",
-    "tsup": "^5.12.0",
+    "lint-staged": "^13.0.1",
+    "simple-git-hooks": "^2.8.0",
+    "tsup": "^6.1.2",
     "typescript": "^4.6.2"
+  },
+  "simple-git-hooks": {
+    "pre-commit": "npx lint-staged"
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts}": [
+      "eslint"
+    ]
+  },
+  "dependencies": {
+    "dayjs": "^1.11.3",
+    "node-xlsx": "^0.21.0"
   }
 }
