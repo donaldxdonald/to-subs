@@ -1,14 +1,18 @@
 
-<h1 align="center">🚀 My TS Lib Starter</h1>
+# To Subs
+
+Convert your sheet file exported from [Language Refactor](https://www.languagereactor.com/) to a subtitle file (.ass).
 
 ## Usage
 
-```shell
-$ pnpm i
+```bash
+# npm user
+npx to-subs <SHEET_FILE_PATH>
+
+# pnpm user
+pnpx to-subs <SHEET_FILE_PATH>
 ```
 
-## Features
+## Supported Sheet File Ext
 
-- Packgae manager [pnpm](https://pnpm.io/)
-- Bundle with [tsup](https://github.com/egoist/tsup)
-- ESLint config [@dndxdnd/eslint-config](https://github.com/donaldxdonald/eslint-configs)
+- xlsx
