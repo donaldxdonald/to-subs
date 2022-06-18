@@ -5,10 +5,12 @@ import { parseSheetToASS } from './utils/sheet'
 
 export function toSub(options: Options) {
 
-  const { output: relatvieOutputDir } = options
-  const outputDir = normalize(relatvieOutputDir!)
-
   options.entries?.forEach(entry => {
+    const { output } = options
+
+    const parsedEntry = parse(entry)
+
+    const outputDir = normalize(output || parsedEntry.dir)
 
     access(outputDir, constants.F_OK, err => {
       if (err) {
@@ -17,7 +19,7 @@ export function toSub(options: Options) {
 
       const fileAbsEntry = normalize(entry)
 
-      const fileName = parse(entry).name || 'output'
+      const fileName = parsedEntry.name || 'output'
 
       writeFile(join(outputDir, `${fileName}.ass`), parseSheetToASS(fileAbsEntry), { encoding: 'utf-8' }, error => {
         if (error) {

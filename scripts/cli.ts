@@ -1,13 +1,8 @@
 import cac from "cac"
-import { join } from "path"
 import { toSub } from "../src"
 import { Options } from "../src/interface/cli"
 
-const defaultOptions: Options = {
-  output: join(__dirname, '../output'),
-}
-
-export async function main(options: Options = defaultOptions) {
+export async function main(options: Options = {}) {
   const cli = cac('to-subs')
 
   cli
