@@ -22,10 +22,6 @@
             "release": "patch"
           },
           {
-            "scope": "patch",
-            "release": "patch"
-          },
-          {
             "scope": "minor",
             "release": "patch"
           }

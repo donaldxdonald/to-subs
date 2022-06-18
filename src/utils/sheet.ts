@@ -6,7 +6,7 @@ import { convertRawTime } from './time'
 
 const defaultStyle: AssStyleFormatV4 = {
   name: "Default",
-  fontName: "Jost",
+  fontName: "Default",
   fontSize: 18,
   primaryColor: "&H00FFFFFF",
   secondaryColor: "&H000000FF",

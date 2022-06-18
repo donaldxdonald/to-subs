@@ -10,11 +10,13 @@
   },
   "scripts": {
     "build": "tsup",
-    "prepublishOnly": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "prepublishOnly": "npm run build"
   },
   "bin": {
     "to-subs": "./dist/scripts/cli.js"
+  },
+  "repository": {
+    "url": "https://github.com/donaldxdonald/to-subs"
   },
   "types": "/dist/src/index.d.ts",
   "author": "donaldxdonald",
