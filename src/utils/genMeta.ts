@@ -13,19 +13,20 @@ Active Line: 1`
 
 const DEFAULT_SCRIPT_STYLE = `
 [V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style:`
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding`
 
 const DEFAULT_SCRIPT_DIALOGUE = `
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 `
 
-export function generateScriptInfo(scriptStyle: AssStyleFormatV4): string {
+export function generateScriptInfo(scriptStyleList: AssStyleFormatV4[]): string {
   let scriptInfo = DEFAULT_META
 
-  scriptInfo += '\n' + DEFAULT_SCRIPT_STYLE
-  scriptInfo += `${scriptStyle.name},${scriptStyle.fontName},${scriptStyle.fontSize},${scriptStyle.primaryColor},${scriptStyle.secondaryColor},${scriptStyle.outlineColor},${scriptStyle.backColor},${scriptStyle.bold},${scriptStyle.italic},${scriptStyle.underline},${scriptStyle.strikeout},${scriptStyle.scaleX},${scriptStyle.scaleY},${scriptStyle.spacing},${scriptStyle.angle},${scriptStyle.borderStyle},${scriptStyle.outline},${scriptStyle.shadow},${scriptStyle.alignment},${scriptStyle.marginL},${scriptStyle.marginR},${scriptStyle.marginV},${scriptStyle.encoding}`
+  scriptInfo += '\n' + DEFAULT_SCRIPT_STYLE + '\n'
+  scriptStyleList.forEach(scriptStyle => {
+    scriptInfo += `Style: ${scriptStyle.name},${scriptStyle.fontName},${scriptStyle.fontSize},${scriptStyle.primaryColor},${scriptStyle.secondaryColor},${scriptStyle.outlineColor},${scriptStyle.backColor},${scriptStyle.bold},${scriptStyle.italic},${scriptStyle.underline},${scriptStyle.strikeout},${scriptStyle.scaleX},${scriptStyle.scaleY},${scriptStyle.spacing},${scriptStyle.angle},${scriptStyle.borderStyle},${scriptStyle.outline},${scriptStyle.shadow},${scriptStyle.alignment},${scriptStyle.marginL},${scriptStyle.marginR},${scriptStyle.marginV},${scriptStyle.encoding}\n`
+  })
 
   return scriptInfo
 }

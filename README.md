@@ -1,7 +1,7 @@
 
 # To Subs
 
-Convert your sheet file exported from [Language Refactor](https://www.languagereactor.com/) to a subtitle file (.ass).
+Convert your sheet file exported from [Language Reactor](https://www.languagereactor.com/) to a subtitle file (.ass).
 
 ## Usage
 

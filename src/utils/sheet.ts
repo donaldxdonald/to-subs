@@ -4,11 +4,37 @@ import { AssDialogueFormat, AssStyleFormatV4 } from '../interface/subtitle'
 import { generateDialogues, generateScriptInfo } from './genMeta'
 import { convertRawTime } from './time'
 
-const defaultStyle: AssStyleFormatV4 = {
-  name: "Default",
+const defaultCNSStyle: AssStyleFormatV4 = {
+  name: "CHS",
   fontName: "Default",
   fontSize: 18,
   primaryColor: "&H00FFFFFF",
+  secondaryColor: "&H000000FF",
+  outlineColor: "&H00000000",
+  backColor: "&H00000000",
+  bold: 0,
+  italic: 0,
+  underline: 0,
+  strikeout: 0,
+  scaleX: 100,
+  scaleY: 100,
+  spacing: 0,
+  angle: 0,
+  borderStyle: 1,
+  outline: 1,
+  shadow: 1,
+  alignment: 2,
+  marginL: 10,
+  marginR: 10,
+  marginV: 10,
+  encoding: 1,
+}
+
+const defaultENGStyle: AssStyleFormatV4 = {
+  name: "ENG",
+  fontName: "Jost",
+  fontSize: 15,
+  primaryColor: "&H0000FFFF",
   secondaryColor: "&H000000FF",
   outlineColor: "&H00000000",
   backColor: "&H00000000",
@@ -35,7 +61,7 @@ export function parseSheetToASS(sheetPath: PathLike): string {
   const { data } = sheetFromFile[0]
   const rows = (data as string[][]).slice(1, -1)
 
-  let newAssText = generateScriptInfo(defaultStyle)
+  let newAssText = generateScriptInfo([defaultCNSStyle, defaultENGStyle])
 
   const dialogues = rows.reduce((result, row, curIndex, arr) => {
     const [time, origin, translated] = row
@@ -46,13 +72,13 @@ export function parseSheetToASS(sheetPath: PathLike): string {
       layer: 0,
       start: convertRawTime(time),
       end: convertRawTime(endTime),
-      style: 'Default',
+      style: 'CHS',
       name: '',
       marginL: 0,
       marginR: 0,
       marginV: 0,
       effect: '',
-      text: `${trimLineBreak(translated)} \\N ${trimLineBreak(origin)}`,
+      text: `${trimLineBreak(translated)} \\N {\\rENG} ${trimLineBreak(origin)}`,
     }
 
     result.push(dialogue)
