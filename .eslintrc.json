@@ -1,6 +1,0 @@
-{
-  "extends": "@dndxdnd",
-  "rules": {
-    "padded-blocks": "off"
-  }
-}

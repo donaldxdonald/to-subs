@@ -1,6 +1,7 @@
-import cac from "cac"
-import { toSub } from "../src"
-import { Options } from "../src/interface/cli"
+import process from 'node:process'
+import cac from 'cac'
+import { toSub } from '../src'
+import { Options } from '../src/interface/cli'
 
 export async function main(options: Options = {}) {
   const cli = cac('to-subs')
@@ -21,7 +22,6 @@ export async function main(options: Options = {}) {
   cli.parse(process.argv, { run: false })
 
   await cli.runMatchedCommand()
-
 }
 
 main()

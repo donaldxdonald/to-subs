@@ -5,13 +5,13 @@ import { generateDialogues, generateScriptInfo } from './genMeta'
 import { convertRawTime } from './time'
 
 const defaultCNSStyle: AssStyleFormatV4 = {
-  name: "CHS",
-  fontName: "Default",
+  name: 'CHS',
+  fontName: 'Default',
   fontSize: 18,
-  primaryColor: "&H00FFFFFF",
-  secondaryColor: "&H000000FF",
-  outlineColor: "&H00000000",
-  backColor: "&H00000000",
+  primaryColor: '&H00FFFFFF',
+  secondaryColor: '&H000000FF',
+  outlineColor: '&H00000000',
+  backColor: '&H00000000',
   bold: 0,
   italic: 0,
   underline: 0,
@@ -31,13 +31,13 @@ const defaultCNSStyle: AssStyleFormatV4 = {
 }
 
 const defaultENGStyle: AssStyleFormatV4 = {
-  name: "ENG",
-  fontName: "Jost",
+  name: 'ENG',
+  fontName: 'Jost',
   fontSize: 15,
-  primaryColor: "&H0000FFFF",
-  secondaryColor: "&H000000FF",
-  outlineColor: "&H00000000",
-  backColor: "&H00000000",
+  primaryColor: '&H0000FFFF',
+  secondaryColor: '&H000000FF',
+  outlineColor: '&H00000000',
+  backColor: '&H00000000',
   bold: 0,
   italic: 0,
   underline: 0,

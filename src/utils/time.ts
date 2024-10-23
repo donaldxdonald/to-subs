@@ -1,7 +1,7 @@
 import dayjs from 'dayjs'
-import * as customParseFormat from 'dayjs/plugin/customParseFormat'
+import customParseFormat from 'dayjs/plugin/customParseFormat.js'
 
-dayjs.extend(customParseFormat.default)
+dayjs.extend(customParseFormat)
 
 export function formatTime(rawTime: string, rawFormat: string): string {
   return dayjs(rawTime, rawFormat).format('H:mm:ss.00')

@@ -4,7 +4,6 @@ import { Options } from './interface/cli'
 import { parseSheetToASS } from './utils/sheet'
 
 export function toSub(options: Options) {
-
   options.entries?.forEach(entry => {
     const { output } = options
 
