@@ -1,8 +1,9 @@
-import { PathLike } from 'fs'
+import { normalize } from 'path'
 import { parse } from 'node-xlsx'
 import { AssDialogueFormat, AssStyleFormatV4 } from '../interface/subtitle'
-import { generateDialogues, generateScriptInfo } from './genMeta'
-import { convertRawTime } from './time'
+import { generateDialogues, generateScriptInfo } from '../utils/genMeta'
+import { convertRawTime } from '../utils/time'
+import { AssHandler } from '../interface/handler'
 
 const defaultCNSStyle: AssStyleFormatV4 = {
   name: 'CHS',
@@ -56,8 +57,8 @@ const defaultENGStyle: AssStyleFormatV4 = {
   encoding: 1,
 }
 
-export function parseSheetToASS(sheetPath: PathLike): string {
-  const sheetFromFile = parse(sheetPath)
+export const parseSheetToASS: AssHandler = sheetPath => {
+  const sheetFromFile = parse(normalize(sheetPath))
   const { data } = sheetFromFile[0]
   const rows = (data as string[][]).slice(1, -1)
 

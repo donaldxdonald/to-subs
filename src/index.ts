@@ -1,7 +1,7 @@
 import { access, constants, mkdirSync, writeFile } from 'fs'
 import { join, normalize, parse } from 'path'
 import { Options } from './interface/cli'
-import { parseSheetToASS } from './utils/sheet'
+import { getHandlerByExt } from './handlers'
 
 export function toSub(options: Options) {
   options.entries?.forEach(entry => {
@@ -16,11 +16,10 @@ export function toSub(options: Options) {
         mkdirSync(outputDir)
       }
 
-      const fileAbsEntry = normalize(entry)
-
       const fileName = parsedEntry.name || 'output'
+      const handler = getHandlerByExt(parsedEntry.ext)
 
-      writeFile(join(outputDir, `${fileName}.ass`), parseSheetToASS(fileAbsEntry), { encoding: 'utf-8' }, error => {
+      writeFile(join(outputDir, `${fileName}.ass`), handler(entry), { encoding: 'utf-8' }, error => {
         if (error) {
           console.log('err', error)
           return
