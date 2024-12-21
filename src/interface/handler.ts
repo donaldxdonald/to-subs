@@ -1,1 +1,1 @@
-export type AssHandler = (filePath: string) => string
+export type AssHandler = (filePath: string) => string | Promise<string>

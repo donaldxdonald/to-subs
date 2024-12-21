@@ -1,7 +1,14 @@
 
 # To Subs
 
-Convert your sheet file exported from [Language Reactor](https://www.languagereactor.com/) to a subtitle file (.ass).
+Convert your sheet files to a subtitle file (.ass).
+
+## Sheet Example
+
+| Time | Original | Translation |
+| ---- | -------- | ----------- |
+| 0:00 | Hello    | 你好        |
+| 1:00 | World    | 世界        |
 
 ## Usage
 
@@ -13,6 +20,7 @@ npx to-subs <SHEET_FILE_PATH>
 pnpx to-subs <SHEET_FILE_PATH>
 ```
 
-## Supported Sheet File Ext
+## Supported Ext
 
 - xlsx
+- csv

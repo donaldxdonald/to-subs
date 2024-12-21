@@ -11,7 +11,7 @@ export function toSub(options: Options) {
 
     const outputDir = normalize(output || parsedEntry.dir)
 
-    access(outputDir, constants.F_OK, err => {
+    access(outputDir, constants.F_OK, async err => {
       if (err) {
         mkdirSync(outputDir)
       }
@@ -19,7 +19,7 @@ export function toSub(options: Options) {
       const fileName = parsedEntry.name || 'output'
       const handler = getHandlerByExt(parsedEntry.ext)
 
-      writeFile(join(outputDir, `${fileName}.ass`), handler(entry), { encoding: 'utf-8' }, error => {
+      writeFile(join(outputDir, `${fileName}.ass`), await handler(entry), { encoding: 'utf-8' }, error => {
         if (error) {
           console.log('err', error)
           return
